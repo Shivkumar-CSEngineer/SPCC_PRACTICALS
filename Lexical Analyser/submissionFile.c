@@ -2,7 +2,6 @@
 #include <conio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <math.h>
 #include <ctype.h>
 #define MAX_KEYWORDS 11
 
@@ -30,18 +29,14 @@ void main()
     result = fgets(codeline, 100, FilePointer);
     while (result != NULL)
     {
-        // printf("\n%s", codeline);
         for (int i = 0; i < strlen(codeline); i++)
         {
-            // printf("\n%c",codeline[i]);
             if (codeline[i] == '\0' || codeline[i] == '\n' || codeline[i] == ' ')
             {
                 continue;
             }
-
             if (isdigit(codeline[i]))
             {
-                // printf("\nit is an digit\n");
                 counter = 0;
                 comparing_string[counter++] = codeline[i];
                 for (int j = 0; j < strlen(codeline); j++)
@@ -64,7 +59,6 @@ void main()
             }
             else if (isalnum(codeline[i]))
             {
-                // printf("\nit is an word\n");
                 counter = 0;
                 comparing_string[counter++] = codeline[i];
                 for (int j = 0; j < strlen(codeline); j++)
@@ -82,7 +76,6 @@ void main()
                 int isfound = 0;
                 for (int m = 0; m < MAX_KEYWORDS; m++)
                 {
-                    // printf("\ncomparision of %s and %s is %d\n",keywords[m],comparing_string,strcmp(keywords[i], comparing_string));
                     if (strcmp(keywords[m], comparing_string) == 0)
                     {
                         isfound = 1;
@@ -107,7 +100,6 @@ void main()
                 printf("\n%c\t --> terminal", codeline[i]);
             }
         }
-
         result = fgets(codeline, 100, FilePointer);
     }
     free(result);
